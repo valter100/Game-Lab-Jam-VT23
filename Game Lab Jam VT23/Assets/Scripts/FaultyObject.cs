@@ -19,7 +19,7 @@ public class FaultyObject : MonoBehaviour
     {
         GetComponentInChildren<ParticleSystem>().gameObject.SetActive(false);
         objectFixed = true;
-        onObjectFixed.Invoke();
         wall.removeFixedObject(gameObject);
+        onObjectFixed.Invoke();
     }
 }

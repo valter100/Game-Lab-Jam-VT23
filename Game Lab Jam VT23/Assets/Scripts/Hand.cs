@@ -20,9 +20,11 @@ public class Hand : MonoBehaviour
     [SerializeField] float timeBetweenProjectile;
     float timeSinceLastProjectile;
 
+    Vector3 currentDirection;
+
     void Start()
     {
-        
+        currentDirection = new Vector3(0, 1, 0);
     }
 
     // Update is called once per frame
@@ -41,25 +43,25 @@ public class Hand : MonoBehaviour
 
     public void Move()
     {
-        if(Input.GetKey(upKey))
+        if(Input.GetKeyDown(upKey))
         {
-            focusTransform.position += new Vector3(0, 1, 0) * movementSpeed * Time.deltaTime;
+            currentDirection = new Vector3(0, 1, 0);
+        }
+        else if (Input.GetKeyDown(downKey))
+        {
+            currentDirection = new Vector3(0, -1, 0);
         }
 
-        if (Input.GetKey(downKey))
+        else if(Input.GetKeyDown(rightKey))
         {
-            focusTransform.position += new Vector3(0, -1, 0) * movementSpeed * Time.deltaTime;
+            currentDirection = new Vector3(1, 0, 0);
+        }
+        else if(Input.GetKeyDown(leftKey))
+        {
+            currentDirection = new Vector3(-1, 0, 0);
         }
 
-        if (Input.GetKey(rightKey))
-        {
-            focusTransform.position += new Vector3(1, 0, 0) * movementSpeed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(leftKey))
-        {
-            focusTransform.position += new Vector3(-1, 0, 0) * movementSpeed * Time.deltaTime;
-        }
+        focusTransform.position += currentDirection * movementSpeed * Time.deltaTime;
 
         Vector3 lookDirection = (focusTransform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(90, 0, 0);

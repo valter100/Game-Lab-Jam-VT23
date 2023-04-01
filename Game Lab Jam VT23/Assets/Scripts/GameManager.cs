@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         FaultyObject.onObjectFixed += UpdateObjectCount;
-
-        UpdateObjectCount();
     }
 
     private void OnDestroy()

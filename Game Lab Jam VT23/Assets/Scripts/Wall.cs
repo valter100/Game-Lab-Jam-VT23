@@ -24,8 +24,12 @@ public class Wall : MonoBehaviour
                 listIndex = 0;
             }
 
+            unfixedObjects.Add(spawnedObject);
+
             spawnedObject.GetComponent<FaultyObject>().SetWall(this);
         }
+
+        FindObjectOfType<GameManager>().UpdateObjectCount();
     }
 
     public void removeFixedObject(GameObject fixedObject)
