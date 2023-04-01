@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float levelTimer;
     [SerializeField] int startCountdown;
     [SerializeField] GameObject countdownTextObject;
+    [SerializeField] GameObject gameOverCanvas;
 
     public static bool GameStarted;
     // Start is called before the first frame update
@@ -36,9 +37,14 @@ public class GameManager : MonoBehaviour
 
         if(levelTimer <= 0)
         {
-            Debug.Log("GAME OVER");
-            GameStarted = false;
+            GameOver();
         }
+    }
+
+    public void GameOver()
+    {
+        gameOverCanvas.SetActive(true);
+        GameStarted = false;
     }
 
     public void UpdateObjectCount()
