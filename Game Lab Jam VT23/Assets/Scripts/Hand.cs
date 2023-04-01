@@ -101,18 +101,6 @@ public class Hand : MonoBehaviour
 
     public bool CheckPassable()
     {
-        //focusTransform.position += currentDirection * movementSpeed * Time.deltaTime;
-
-        //foreach (GameObject go in wall.GetImpassableObjects())
-        //{
-        //    if (focusTransform.GetComponent<Collider>().bounds.Intersects(go.GetComponent<Collider>().bounds))
-        //    {
-        //        return false;
-        //    }
-        //}
-
-        //return true;
-
         Vector3 direction = ((focusTransform.position + currentDirection * movementSpeed * Time.deltaTime) - transform.position).normalized;
 
         if (Physics.Raycast(transform.position, direction, Mathf.Infinity, impassableLayer))

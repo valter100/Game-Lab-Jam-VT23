@@ -18,7 +18,7 @@ public class Wall : MonoBehaviour
         {
             for (int i = 0; i < nrOfObjects; i++)
             {
-                Vector3 spawnPoint = new Vector3(Random.Range(-GetComponent<Collider>().bounds.size.x / 2, GetComponent<Collider>().bounds.size.x/2), Random.Range(0, GetComponent<Collider>().bounds.size.y), transform.position.z -0.5f);
+                Vector3 spawnPoint = new Vector3(Random.Range(-GetComponent<Collider>().bounds.size.x / 1.8f, GetComponent<Collider>().bounds.size.x/1.8f), Random.Range(0.5f, GetComponent<Collider>().bounds.size.y - 0.5f), transform.position.z -0.5f);
            
                 GameObject spawnedObject = Instantiate(objectToSpawn[listIndex++], spawnPoint, Quaternion.identity);
 
