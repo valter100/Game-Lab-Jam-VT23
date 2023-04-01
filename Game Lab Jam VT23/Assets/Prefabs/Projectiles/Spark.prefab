@@ -135,4 +135,5 @@ MonoBehaviour:
   oddTags:
   - Water
   - Fire
+  breakTag: Electricity
   fixTag: Power

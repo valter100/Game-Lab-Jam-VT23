@@ -31,11 +31,14 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.GameStarted)
+            return;
+
         Move();
 
         timeSinceLastProjectile += Time.deltaTime;
 
-        if(timeSinceLastProjectile >= timeBetweenProjectile)
+        if (timeSinceLastProjectile >= timeBetweenProjectile)
         {
             timeSinceLastProjectile = 0;
             Instantiate(projectile, spawnPoint.transform.position, transform.rotation);
@@ -44,27 +47,39 @@ public class Hand : MonoBehaviour
 
     public void Move()
     {
-        if(Input.GetKeyDown(upKey))
+        if (Input.GetKeyDown(upKey))
         {
-            currentDirection = new Vector3(0, 1, 0);
+            if (currentDirection == new Vector3(0, 1, 0))
+                currentDirection = new Vector3(0, 1.5f, 0);
+            else
+                currentDirection = new Vector3(0, 1, 0);
         }
         else if (Input.GetKeyDown(downKey))
         {
-            currentDirection = new Vector3(0, -1, 0);
+            if (currentDirection == new Vector3(0, -1, 0))
+                currentDirection = new Vector3(0, -1.5f, 0);
+            else
+                currentDirection = new Vector3(0, -1, 0);
         }
 
-        else if(Input.GetKeyDown(rightKey))
+        else if (Input.GetKeyDown(rightKey))
         {
-            currentDirection = new Vector3(1, 0, 0);
+            if (currentDirection == new Vector3(1, 0, 0))
+                currentDirection = new Vector3(1.5f, 0, 0);
+            else
+                currentDirection = new Vector3(1, 0, 0);
         }
-        else if(Input.GetKeyDown(leftKey))
+        else if (Input.GetKeyDown(leftKey))
         {
-            currentDirection = new Vector3(-1, 0, 0);
+            if (currentDirection == new Vector3(-1, 0, 0))
+                currentDirection = new Vector3(-1.5f, 0, 0);
+            else
+                currentDirection = new Vector3(-1, 0, 0);
         }
 
         focusTransform.position += currentDirection * movementSpeed * Time.deltaTime;
 
-        focusTransform.position = new Vector3(Mathf.Clamp(focusTransform.position.x, -wall.GetComponent<Collider>().bounds.size.x/2, wall.GetComponent<Collider>().bounds.size.x/2), Mathf.Clamp(focusTransform.position.y, 0, wall.GetComponent<Collider>().bounds.size.y), wall.transform.position.z);
+        focusTransform.position = new Vector3(Mathf.Clamp(focusTransform.position.x, -wall.GetComponent<Collider>().bounds.size.x / 2, wall.GetComponent<Collider>().bounds.size.x / 2), Mathf.Clamp(focusTransform.position.y, 0, wall.GetComponent<Collider>().bounds.size.y), wall.transform.position.z);
 
         Vector3 lookDirection = (focusTransform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(90, 0, 0);
