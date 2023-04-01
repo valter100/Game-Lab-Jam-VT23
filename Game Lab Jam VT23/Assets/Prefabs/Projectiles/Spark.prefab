@@ -130,7 +130,9 @@ MonoBehaviour:
   poolObject: {fileID: 9043266304082323882, guid: a79ee1ffa4fe0384580ac1094000425f,
     type: 3}
   movementSpeed: 10
-  SplashEffect: {fileID: 4821651737340893736, guid: b85ce97c613a4bd42a357d3ea5381cf8,
+  SplashEffect: {fileID: 4821651737340893736, guid: a7f6c7048a61e9745b42eb53cf80a339,
     type: 3}
-  oddTag: Water
+  oddTags:
+  - Water
+  - Fire
   fixTag: Power

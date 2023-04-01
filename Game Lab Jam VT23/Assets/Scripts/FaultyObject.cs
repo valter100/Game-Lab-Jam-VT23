@@ -11,5 +11,6 @@ public class FaultyObject : MonoBehaviour
     public void Fix()
     {
         GetComponentInChildren<ParticleSystem>().gameObject.SetActive(false);
+        objectFixed = true;
     }
 }

@@ -8,7 +8,7 @@ public class ElementalProjectile : MonoBehaviour
     [SerializeField] float movementSpeed;
     [SerializeField] ParticleSystem SplashEffect;
 
-    [SerializeField] string oddTag;
+    [SerializeField] List<string> oddTags;
     [SerializeField] string fixTag;
 
     private void Update()
@@ -18,10 +18,13 @@ public class ElementalProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == oddTag)
+        foreach(string tag in oddTags)
         {
-            Debug.Log("Game Over!!");
-            Destroy(gameObject);
+            if (other.gameObject.tag == tag )
+            {
+                Debug.Log("Game Over!!");
+                Destroy(gameObject);
+            }
         }
 
         if (other.gameObject.tag == fixTag)

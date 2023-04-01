@@ -132,5 +132,7 @@ MonoBehaviour:
   movementSpeed: 10
   SplashEffect: {fileID: 4821651737340893736, guid: b85ce97c613a4bd42a357d3ea5381cf8,
     type: 3}
-  oddTag: Electricity
+  oddTags:
+  - Electricity
+  - Power
   fixTag: Fire
