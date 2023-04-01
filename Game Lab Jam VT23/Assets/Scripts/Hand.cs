@@ -80,7 +80,7 @@ public class Hand : MonoBehaviour
 
         focusTransform.position += currentDirection * movementSpeed * Time.deltaTime;
 
-        CheckPassable();
+        //CheckPassable();
 
         focusTransform.position = new Vector3(Mathf.Clamp(focusTransform.position.x, -wall.GetComponent<Collider>().bounds.size.x / 2, wall.GetComponent<Collider>().bounds.size.x / 2), Mathf.Clamp(focusTransform.position.y, 0, wall.GetComponent<Collider>().bounds.size.y), wall.transform.position.z);
 
@@ -88,14 +88,14 @@ public class Hand : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(90, 0, 0);
     }
 
-    public void CheckPassable()
-    {
-        foreach(GameObject go in wall.GetImpassableObjects())
-        {
-            if(focusTransform.GetComponent<Collider>().bounds.Intersects(go.GetComponent<Collider>().bounds))
-            {
-                focusTransform.position -= currentDirection * 1.5f * movementSpeed * Time.deltaTime;
-            }
-        }
-    }
+    //public void CheckPassable()
+    //{
+    //    foreach(GameObject go in wall.GetImpassableObjects())
+    //    {
+    //        if(focusTransform.GetComponent<Collider>().bounds.Intersects(go.GetComponent<Collider>().bounds))
+    //        {
+    //            focusTransform.position -= currentDirection * 1.5f * movementSpeed * Time.deltaTime;
+    //        }
+    //    }
+    //}
 }
