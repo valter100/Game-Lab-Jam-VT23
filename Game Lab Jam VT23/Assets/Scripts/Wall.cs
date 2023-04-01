@@ -6,6 +6,7 @@ public class Wall : MonoBehaviour
 {
     [SerializeField] int nrOfObjects;
     [SerializeField] List<GameObject> objectToSpawn;
+    [SerializeField] List<GameObject> unfixedObjects;
     Vector2 spawnBounds;
     // Start is called before the first frame update
     void Start()
@@ -16,18 +17,21 @@ public class Wall : MonoBehaviour
         {
             Vector3 spawnPoint = new Vector3(Random.Range(-GetComponent<Collider>().bounds.size.x / 2, GetComponent<Collider>().bounds.size.x/2), Random.Range(0, GetComponent<Collider>().bounds.size.y), transform.position.z -0.5f);
            
-            Instantiate(objectToSpawn[listIndex++], spawnPoint, Quaternion.identity);
+            GameObject spawnedObject = Instantiate(objectToSpawn[listIndex++], spawnPoint, Quaternion.identity);
 
             if(listIndex >= objectToSpawn.Count)
             {
                 listIndex = 0;
             }
+
+            spawnedObject.GetComponent<FaultyObject>().SetWall(this);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void removeFixedObject(GameObject fixedObject)
     {
-
+        unfixedObjects.Remove(fixedObject);
     }
+
+    public int UnfixedObjectCount() => unfixedObjects.Count;
 }
