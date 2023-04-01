@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FaultyObject : MonoBehaviour
 {
-    Wall wall;
+    [SerializeField] Wall wall;
     bool objectFixed;
 
     public delegate void ObjectFixed();
