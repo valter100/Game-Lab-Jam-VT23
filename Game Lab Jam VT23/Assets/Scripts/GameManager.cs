@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    Wall wall;
+    [SerializeField] Wall wall;
     [SerializeField] TMP_Text scoreText;
     // Start is called before the first frame update
     void Start()
