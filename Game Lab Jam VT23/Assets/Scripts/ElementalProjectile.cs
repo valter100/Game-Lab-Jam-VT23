@@ -23,7 +23,7 @@ public class ElementalProjectile : MonoBehaviour
         {
             if (other.gameObject.tag == tag )
             {
-                Debug.Log("Game Over!!");
+                FindObjectOfType<GameManager>().GameOver();
                 Destroy(gameObject);
             }
         }
