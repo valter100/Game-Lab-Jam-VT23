@@ -9,11 +9,12 @@ TagManager:
   - Electricity
   - Power
   - Fire
+  - Impassable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Impassable
   - Water
   - UI
   - 

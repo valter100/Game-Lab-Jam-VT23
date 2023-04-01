@@ -20,9 +20,11 @@ public class Hand : MonoBehaviour
     [SerializeField] float movementSpeed;
     [SerializeField] float timeBetweenProjectile;
     [SerializeField] bool activeOnLevel;
+    [SerializeField] LayerMask impassableLayer;
     float timeSinceLastProjectile;
 
     Vector3 currentDirection;
+    Vector3 oldPosition;
 
     void Start()
     {
@@ -34,6 +36,8 @@ public class Hand : MonoBehaviour
     {
         if (!GameManager.GameStarted || !activeOnLevel)
             return;
+
+        oldPosition = transform.position;
 
         Move();
 
@@ -78,9 +82,16 @@ public class Hand : MonoBehaviour
                 currentDirection = new Vector3(-1, 0, 0);
         }
 
-        focusTransform.position += currentDirection * movementSpeed * Time.deltaTime;
-
-        CheckPassable();
+        if (CheckPassable())
+        {
+            Debug.Log("GO!");
+            focusTransform.position += currentDirection * movementSpeed * Time.deltaTime;
+        }
+        else
+        {
+            Debug.Log("DONT GO");
+            currentDirection = new Vector3(0, 0, 0);
+        }
 
         focusTransform.position = new Vector3(Mathf.Clamp(focusTransform.position.x, -wall.GetComponent<Collider>().bounds.size.x / 2, wall.GetComponent<Collider>().bounds.size.x / 2), Mathf.Clamp(focusTransform.position.y, 0, wall.GetComponent<Collider>().bounds.size.y), wall.transform.position.z);
 
@@ -88,14 +99,27 @@ public class Hand : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(90, 0, 0);
     }
 
-    public void CheckPassable()
+    public bool CheckPassable()
     {
-        foreach(GameObject go in wall.GetImpassableObjects())
+        //focusTransform.position += currentDirection * movementSpeed * Time.deltaTime;
+
+        //foreach (GameObject go in wall.GetImpassableObjects())
+        //{
+        //    if (focusTransform.GetComponent<Collider>().bounds.Intersects(go.GetComponent<Collider>().bounds))
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        //return true;
+
+        Vector3 direction = ((focusTransform.position + currentDirection * movementSpeed * Time.deltaTime) - transform.position).normalized;
+
+        if (Physics.Raycast(transform.position, direction, Mathf.Infinity, impassableLayer))
         {
-            if(focusTransform.GetComponent<Collider>().bounds.Intersects(go.GetComponent<Collider>().bounds))
-            {
-                focusTransform.position -= currentDirection * 1.5f * movementSpeed * Time.deltaTime;
-            }
+            return false;
         }
+
+        return true;
     }
 }
