@@ -8,9 +8,13 @@ public class Wall : MonoBehaviour
     [SerializeField] List<GameObject> objectToSpawn;
     [SerializeField] List<GameObject> unfixedObjects;
     Vector2 spawnBounds;
+
+    [SerializeField] GameObject[] impassableObjects;
     // Start is called before the first frame update
     void Start()
     {
+        impassableObjects = GameObject.FindGameObjectsWithTag("Impassable");
+
         int listIndex = 0;
 
         for (int i = 0; i < nrOfObjects; i++)
@@ -37,5 +41,6 @@ public class Wall : MonoBehaviour
         unfixedObjects.Remove(fixedObject);
     }
 
+    public GameObject[] GetImpassableObjects() => impassableObjects;
     public int UnfixedObjectCount() => unfixedObjects.Count;
 }
