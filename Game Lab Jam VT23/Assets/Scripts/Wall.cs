@@ -1,36 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
     [SerializeField] int nrOfObjects;
     [SerializeField] List<GameObject> objectToSpawn;
-    [SerializeField] List<GameObject> unfixedObjects;
+    [SerializeField] List<FaultyObject> unfixedObjects;
     Vector2 spawnBounds;
-
-    [SerializeField] GameObject[] impassableObjects;
+    [SerializeField] bool randomCubes;
     // Start is called before the first frame update
     void Start()
     {
-        impassableObjects = GameObject.FindGameObjectsWithTag("Impassable");
-
         int listIndex = 0;
-
-        for (int i = 0; i < nrOfObjects; i++)
+        if (randomCubes)
         {
-            Vector3 spawnPoint = new Vector3(Random.Range(-GetComponent<Collider>().bounds.size.x / 2, GetComponent<Collider>().bounds.size.x/2), Random.Range(0, GetComponent<Collider>().bounds.size.y), transform.position.z -0.5f);
-           
-            GameObject spawnedObject = Instantiate(objectToSpawn[listIndex++], spawnPoint, Quaternion.identity);
-
-            if(listIndex >= objectToSpawn.Count)
+            for (int i = 0; i < nrOfObjects; i++)
             {
-                listIndex = 0;
+                Vector3 spawnPoint = new Vector3(Random.Range(-GetComponent<Collider>().bounds.size.x / 2, GetComponent<Collider>().bounds.size.x/2), Random.Range(0, GetComponent<Collider>().bounds.size.y), transform.position.z -0.5f);
+           
+                GameObject spawnedObject = Instantiate(objectToSpawn[listIndex++], spawnPoint, Quaternion.identity);
+
+                if(listIndex >= objectToSpawn.Count)
+                {
+                    listIndex = 0;
+                }
+
+                unfixedObjects.Add(spawnedObject.GetComponent<FaultyObject>());
+
+                spawnedObject.GetComponent<FaultyObject>().SetWall(this);
             }
-
-            unfixedObjects.Add(spawnedObject);
-
-            spawnedObject.GetComponent<FaultyObject>().SetWall(this);
+        }
+        else
+        {
+            
+            unfixedObjects = FindObjectsOfType<FaultyObject>().ToList();
+            
         }
 
         FindObjectOfType<GameManager>().UpdateObjectCount();
@@ -38,9 +44,8 @@ public class Wall : MonoBehaviour
 
     public void removeFixedObject(GameObject fixedObject)
     {
-        unfixedObjects.Remove(fixedObject);
+        unfixedObjects.Remove(fixedObject.GetComponent<FaultyObject>());
     }
 
-    public GameObject[] GetImpassableObjects() => impassableObjects;
     public int UnfixedObjectCount() => unfixedObjects.Count;
 }

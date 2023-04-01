@@ -178,12 +178,14 @@ MonoBehaviour:
   projectile: {fileID: 130085407620272165, guid: 95159b8c30683054f97f42ed11e01448,
     type: 3}
   spawnPoint: {fileID: 4295569146407126878}
+  wall: {fileID: 0}
   upKey: 119
   downKey: 115
   rightKey: 100
   leftKey: 97
   movementSpeed: 1
   timeBetweenProjectile: 0.25
+  activeOnLevel: 0
 --- !u!1 &5123948492354205886
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,12 +333,14 @@ MonoBehaviour:
   projectile: {fileID: 130085407620272165, guid: 95159b8c30683054f97f42ed11e01448,
     type: 3}
   spawnPoint: {fileID: 3181838879623456650}
+  wall: {fileID: 0}
   upKey: 273
   downKey: 274
   rightKey: 275
   leftKey: 276
   movementSpeed: 1
   timeBetweenProjectile: 0.25
+  activeOnLevel: 0
 --- !u!1 &5123948492781951021
 GameObject:
   m_ObjectHideFlags: 0
