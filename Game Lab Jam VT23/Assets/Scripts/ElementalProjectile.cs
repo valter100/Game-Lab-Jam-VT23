@@ -56,7 +56,7 @@ public class ElementalProjectile : MonoBehaviour
         {
             Vector3 spawnLocation = new Vector3(transform.position.x, transform.position.y, other.transform.position.z - 0.5f);
 
-            GameObject pool = Instantiate(poolObject, spawnLocation, Quaternion.Euler(90, 0, 0));
+            GameObject pool = Instantiate(poolObject, spawnLocation, Quaternion.Euler(Random.Range(0, 360), 90, 90));
             Instantiate(SplashEffect, spawnLocation, Quaternion.Euler(180, 0, 0));
             pool.transform.parent = GameObject.Find("Pools").transform;
             Destroy(gameObject);

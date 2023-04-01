@@ -166,6 +166,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1635299145933147068, guid: 00eb7f1ffc29dd44f86ca9ef7e9cf163,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2443457484128311769, guid: 00eb7f1ffc29dd44f86ca9ef7e9cf163,
         type: 3}
       propertyPath: m_Name
