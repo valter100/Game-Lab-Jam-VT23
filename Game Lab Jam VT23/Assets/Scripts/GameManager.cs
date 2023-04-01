@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int startCountdown;
     [SerializeField] GameObject countdownTextObject;
     [SerializeField] GameObject gameOverCanvas;
+    [SerializeField] GameObject winCanvas;
 
     public static bool GameStarted;
     // Start is called before the first frame update
@@ -50,6 +51,12 @@ public class GameManager : MonoBehaviour
     public void UpdateObjectCount()
     {
         scoreText.text = "Unfixed Objects: " + wall.UnfixedObjectCount();
+
+        if (wall.UnfixedObjectCount() <= 0)
+        {
+            winCanvas.SetActive(true);
+            GameStarted = false;
+        }
     }
 
     public void StartGame()
