@@ -503,8 +503,9 @@ MonoBehaviour:
   scoreText: {fileID: 37005047}
   timerText: {fileID: 989559111}
   levelTimer: 30
-  startCountdown: 0
-  countdownTextObject: {fileID: 0}
+  startCountdown: 5
+  countdownTextObject: {fileID: 5650931216514241067, guid: 4b5ee5a32c4a7534e92f59388e74a13b,
+    type: 3}
 --- !u!4 &682919177
 Transform:
   m_ObjectHideFlags: 0
@@ -1287,6 +1288,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5123948492295542454, guid: feaa9ad1542b109429bc56f6705dee06,
         type: 3}
+      propertyPath: activeOnLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5123948492295542454, guid: feaa9ad1542b109429bc56f6705dee06,
+        type: 3}
       propertyPath: movementSpeed
       value: 0.75
       objectReference: {fileID: 0}
@@ -1300,6 +1306,11 @@ PrefabInstance:
       propertyPath: wall
       value: 
       objectReference: {fileID: 1181909132}
+    - target: {fileID: 5123948492422351964, guid: feaa9ad1542b109429bc56f6705dee06,
+        type: 3}
+      propertyPath: activeOnLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5123948492422351964, guid: feaa9ad1542b109429bc56f6705dee06,
         type: 3}
       propertyPath: movementSpeed
