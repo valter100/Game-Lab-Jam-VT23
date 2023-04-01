@@ -1136,6 +1136,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5123948492295542454, guid: feaa9ad1542b109429bc56f6705dee06,
         type: 3}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 1181909132}
+    - target: {fileID: 5123948492295542454, guid: feaa9ad1542b109429bc56f6705dee06,
+        type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 130085407620272165, guid: ea7da686dde4ebf44a3fbd0501851f61,
@@ -1145,6 +1150,11 @@ PrefabInstance:
       propertyPath: timeBetweenProjectile
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5123948492422351964, guid: feaa9ad1542b109429bc56f6705dee06,
+        type: 3}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 1181909132}
     - target: {fileID: 5123948492422351964, guid: feaa9ad1542b109429bc56f6705dee06,
         type: 3}
       propertyPath: timeBetweenProjectile

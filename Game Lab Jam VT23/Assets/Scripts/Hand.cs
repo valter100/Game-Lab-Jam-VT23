@@ -8,6 +8,7 @@ public class Hand : MonoBehaviour
     [SerializeField] Transform focusTransform;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform spawnPoint;
+    [SerializeField] Wall wall;
 
     [Header("Input")]
     [SerializeField] KeyCode upKey;
@@ -62,6 +63,8 @@ public class Hand : MonoBehaviour
         }
 
         focusTransform.position += currentDirection * movementSpeed * Time.deltaTime;
+
+        focusTransform.position = new Vector3(Mathf.Clamp(focusTransform.position.x, -wall.GetComponent<Collider>().bounds.size.x/2, wall.GetComponent<Collider>().bounds.size.x/2), Mathf.Clamp(focusTransform.position.y, 0, wall.GetComponent<Collider>().bounds.size.y), wall.transform.position.z);
 
         Vector3 lookDirection = (focusTransform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(90, 0, 0);
