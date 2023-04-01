@@ -19,6 +19,7 @@ public class Hand : MonoBehaviour
     [Header("Values")]
     [SerializeField] float movementSpeed;
     [SerializeField] float timeBetweenProjectile;
+    [SerializeField] bool activeOnLevel;
     float timeSinceLastProjectile;
 
     Vector3 currentDirection;
@@ -31,7 +32,7 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.GameStarted)
+        if (!GameManager.GameStarted || !activeOnLevel)
             return;
 
         Move();
