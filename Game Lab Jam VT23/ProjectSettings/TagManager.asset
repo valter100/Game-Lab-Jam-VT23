@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - Water
+  - Electricity
+  - Power
+  - Fire
   layers:
   - Default
   - TransparentFX
