@@ -6,6 +6,7 @@ public class FaultyObject : MonoBehaviour
 {
     Wall wall;
     bool objectFixed;
+    
 
     public delegate void ObjectFixed();
     public static ObjectFixed onObjectFixed;
@@ -26,5 +27,6 @@ public class FaultyObject : MonoBehaviour
         objectFixed = true;
         wall.removeFixedObject(gameObject);
         onObjectFixed.Invoke();
+        GetComponent<Animator>().Play("Fix");
     }
 }

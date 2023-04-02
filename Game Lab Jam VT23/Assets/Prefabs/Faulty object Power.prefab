@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 750306884644327065}
   - component: {fileID: 3087144720182158432}
   - component: {fileID: -5157654416578957519}
+  - component: {fileID: 5612362147690789483}
   m_Layer: 0
   m_Name: Faulty object Power
   m_TagString: Power
@@ -60,6 +61,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b6a05486556fd498a42c33213495ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5612362147690789483
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4526195667206755523}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d4b6475127c5524a8678775c8d71c23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8616321512712101525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4943,7 +4964,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0578669fbe2242442bfe2cfdedefb8f3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.03
   m_Pitch: 1
   Loop: 1
   Mute: 0

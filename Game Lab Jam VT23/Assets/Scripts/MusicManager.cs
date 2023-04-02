@@ -19,5 +19,7 @@ public class MusicManager : MonoBehaviour
 
         GetComponent<AudioSource>().clip = newMusic;
         musicClip = newMusic;
+        GetComponent<AudioSource>().Play();
+
     }
 }
