@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class FaultyObject : MonoBehaviour
 {
-    [SerializeField] Wall wall;
+    Wall wall;
     bool objectFixed;
 
     public delegate void ObjectFixed();
     public static ObjectFixed onObjectFixed;
     public bool Fixed() => objectFixed;
+
+    private void Start()
+    {
+        wall = FindObjectOfType<Wall>();
+    }
 
     public void SetWall(Wall newWall)
     {
