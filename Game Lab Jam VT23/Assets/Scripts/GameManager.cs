@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,17 +14,30 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject countdownTextObject;
     [SerializeField] GameObject gameOverCanvas;
     [SerializeField] GameObject winCanvas;
+    [SerializeField] AudioClip levelMusic;
+    [SerializeField] AudioClip gameOverSound;
+    [SerializeField] AudioClip winSound;
 
     public static bool GameStarted;
     // Start is called before the first frame update
     void Start()
     {
-        if(timerText != null)
+        if (timerText != null)
         {
             timerText.text = "TIME: " + (int)levelTimer;
         }
-            FaultyObject.onObjectFixed += UpdateObjectCount;
-            StartGame();
+        FaultyObject.onObjectFixed += UpdateObjectCount;
+
+        try
+        {
+            FindObjectOfType<MusicManager>().GetMusic(levelMusic);
+        }
+        catch(Exception e)
+        {
+
+        }
+
+        StartGame();
     }
 
     private void OnDestroy()
@@ -36,15 +50,13 @@ public class GameManager : MonoBehaviour
         if (!GameStarted)
             return;
 
-        levelTimer -= Time.deltaTime;
-        if(timerText != null)
+        if (timerText != null)
         {
-
+            levelTimer -= Time.deltaTime;
             timerText.text = "TIME: " + (int)levelTimer;
-
         }
 
-        if(levelTimer <= 0)
+        if (levelTimer <= 0)
         {
             GameOver();
         }
@@ -54,6 +66,8 @@ public class GameManager : MonoBehaviour
     {
         gameOverCanvas.SetActive(true);
         GameStarted = false;
+
+        FindObjectOfType<AudioSource>().PlayOneShot(gameOverSound);
     }
 
     public void UpdateObjectCount()
@@ -63,6 +77,7 @@ public class GameManager : MonoBehaviour
         if (wall.UnfixedObjectCount() <= 0)
         {
             winCanvas.SetActive(true);
+            FindObjectOfType<AudioSource>().PlayOneShot(winSound);
             GameStarted = false;
         }
     }
@@ -74,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator _StartGame()
     {
-        for(int i = startCountdown; i > 0; i--)
+        for (int i = startCountdown; i > 0; i--)
         {
             GameObject spawnedObject = Instantiate(countdownTextObject);
             spawnedObject.GetComponentInChildren<TMP_Text>().text = i.ToString();

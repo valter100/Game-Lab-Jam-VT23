@@ -46,7 +46,7 @@ public class Hand : MonoBehaviour
         if (timeSinceLastProjectile >= timeBetweenProjectile)
         {
             timeSinceLastProjectile = 0;
-            Instantiate(projectile, spawnPoint.transform.position, transform.rotation);
+            Instantiate(projectile, spawnPoint.transform.position, transform.rotation * Quaternion.Euler(0, 0, 180));
         }
     }
 
@@ -96,7 +96,7 @@ public class Hand : MonoBehaviour
         focusTransform.position = new Vector3(Mathf.Clamp(focusTransform.position.x, -wall.GetComponent<Collider>().bounds.size.x / 2, wall.GetComponent<Collider>().bounds.size.x / 2), Mathf.Clamp(focusTransform.position.y, 0, wall.GetComponent<Collider>().bounds.size.y), wall.transform.position.z);
 
         Vector3 lookDirection = (focusTransform.position - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(90, 0, 0);
+        transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(90, 0, 180);
     }
 
     public bool CheckPassable()

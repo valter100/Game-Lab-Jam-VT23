@@ -52,3 +52,6 @@ MonoBehaviour:
   countdownTextObject: {fileID: 0}
   gameOverCanvas: {fileID: 0}
   winCanvas: {fileID: 0}
+  levelMusic: {fileID: 0}
+  gameOverSound: {fileID: 8300000, guid: e45d68d9bcdfc9542bb131e72234f756, type: 3}
+  winSound: {fileID: 8300000, guid: e1f4c571bf0e700499563390b7c54e1d, type: 3}

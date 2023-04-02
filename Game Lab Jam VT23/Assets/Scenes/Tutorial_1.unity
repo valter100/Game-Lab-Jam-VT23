@@ -182,8 +182,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Oh no! The box is running out of power. Use WASD to navigate your electricity
-    to power it!
+  m_text: Oh no! That strange machine is running out of power. Use WASD to navigate
+    your electricity to power it!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50c12c23294124aa48490c44ac65a9e4, type: 2}
   m_sharedMaterial: {fileID: 7746803525459343344, guid: 50c12c23294124aa48490c44ac65a9e4,
@@ -655,6 +655,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221645944431620912, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 221645944431620912, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
       propertyPath: scoreText
@@ -672,6 +682,11 @@ PrefabInstance:
       objectReference: {fileID: 1367788868}
     - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 5cedbb941f4ed514da49f8c3ba66848d, type: 3}
+    - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1638191768}
@@ -683,6 +698,16 @@ PrefabInstance:
     - target: {fileID: 1710650372457542385, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
       propertyPath: activeOnLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198839723515636860, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198839723515636860, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4030518750403279402, guid: 226a78896f0d63241a59105af2c1a515,
@@ -744,6 +769,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726613540743330291, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726613540743330291, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726613540743330291, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975312217553017127, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975312217553017127, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 329
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975312217553017127, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226a78896f0d63241a59105af2c1a515, type: 3}

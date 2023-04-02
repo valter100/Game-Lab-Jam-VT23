@@ -199,11 +199,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221645944431620912, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 221645944431620912, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 1505923991}
+    - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 72f697fa04a0b6546a6525fd9aff1d1f, type: 3}
+    - target: {fileID: 2198839723515636860, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198839723515636860, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4030518749912488903, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
       propertyPath: randomCubes

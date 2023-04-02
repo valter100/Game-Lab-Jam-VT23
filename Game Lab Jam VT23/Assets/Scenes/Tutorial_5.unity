@@ -835,11 +835,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221645944431620912, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 221645944431620912, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 1956429626}
+    - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 5cedbb941f4ed514da49f8c3ba66848d, type: 3}
     - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
       propertyPath: levelTimer
@@ -849,6 +864,16 @@ PrefabInstance:
         type: 3}
       propertyPath: startCountdown
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198839723515636860, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198839723515636860, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4030518750403279402, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
