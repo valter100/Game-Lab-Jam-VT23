@@ -18,9 +18,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timerText.text = "TIME: " + (int)levelTimer;
-        FaultyObject.onObjectFixed += UpdateObjectCount;
-        StartGame();
+        if(timerText != null)
+        {
+            timerText.text = "TIME: " + (int)levelTimer;
+        }
+            FaultyObject.onObjectFixed += UpdateObjectCount;
+            StartGame();
     }
 
     private void OnDestroy()
@@ -34,8 +37,12 @@ public class GameManager : MonoBehaviour
             return;
 
         levelTimer -= Time.deltaTime;
+        if(timerText != null)
+        {
 
-        timerText.text = "TIME: " + (int)levelTimer;
+            timerText.text = "TIME: " + (int)levelTimer;
+
+        }
 
         if(levelTimer <= 0)
         {
