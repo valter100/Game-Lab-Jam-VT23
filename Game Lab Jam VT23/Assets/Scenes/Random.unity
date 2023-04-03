@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: levelMusic
       value: 
       objectReference: {fileID: 8300000, guid: 72f697fa04a0b6546a6525fd9aff1d1f, type: 3}
+    - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: levelTimer
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2198839723515636860, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -228,6 +233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030518749912488903, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: nrOfObjects
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4030518749912488903, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}

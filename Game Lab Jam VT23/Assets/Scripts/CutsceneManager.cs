@@ -9,6 +9,7 @@ public class CutsceneManager : MonoBehaviour
 {
     [SerializeField] Image cutsceneImage;
     [SerializeField] TMP_Text cutsceneText;
+    [SerializeField] TMP_Text tipText;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
     [SerializeField] List<string> subtitles = new List<string>();
     int index;
@@ -51,6 +52,11 @@ public class CutsceneManager : MonoBehaviour
 
     public void ChangeSlide()
     {
+        if (index == 1)
+            tipText.gameObject.SetActive(false);
+        else if (index == 0)
+            tipText.gameObject.SetActive(true);
+
         cutsceneImage.sprite = sprites[index];
         cutsceneText.text = subtitles[index];
     }

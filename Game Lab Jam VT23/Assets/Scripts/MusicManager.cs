@@ -10,6 +10,10 @@ public class MusicManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         musicClip = GetComponent<AudioSource>().clip;
+
+        GameObject musicManager = GameObject.Find("Music Manager");
+        if (musicManager != gameObject)
+            Destroy(musicManager);
     }
 
     public void GetMusic(AudioClip newMusic)
