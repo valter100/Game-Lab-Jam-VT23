@@ -9,6 +9,7 @@ public class Hand : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Wall wall;
+    [SerializeField] LineRenderer lineRenderer;
 
     [Header("Input")]
     [SerializeField] KeyCode upKey;
@@ -20,6 +21,7 @@ public class Hand : MonoBehaviour
     [SerializeField] float movementSpeed;
     [SerializeField] float timeBetweenProjectile;
     [SerializeField] bool activeOnLevel;
+    [SerializeField] bool isBeam;
     [SerializeField] LayerMask impassableLayer;
     float timeSinceLastProjectile;
 
@@ -41,12 +43,25 @@ public class Hand : MonoBehaviour
 
         Move();
 
-        timeSinceLastProjectile += Time.deltaTime;
-
-        if (timeSinceLastProjectile >= timeBetweenProjectile)
+        if(isBeam)
         {
-            timeSinceLastProjectile = 0;
-            Instantiate(projectile, spawnPoint.transform.position, transform.rotation * Quaternion.Euler(0, 0, 180));
+            Vector3[] positions = {focusTransform.transform.position, transform.position};
+
+            for(int i = 0; i < positions.Length; i++)
+            {
+                lineRenderer.SetPosition(i, positions[i]);
+            }
+            //lineRenderer.SetPositions(positions);
+        }
+        else
+        {
+            timeSinceLastProjectile += Time.deltaTime;
+
+            if (timeSinceLastProjectile >= timeBetweenProjectile)
+            {
+                timeSinceLastProjectile = 0;
+                Instantiate(projectile, spawnPoint.transform.position, transform.rotation * Quaternion.Euler(0, 0, 180));
+            }
         }
     }
 
@@ -109,5 +124,10 @@ public class Hand : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void Disable()
+    {
+        activeOnLevel = false;
     }
 }

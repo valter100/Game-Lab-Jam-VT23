@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 5123948492295542454}
   m_Layer: 0
   m_Name: Hand Left
-  m_TagString: Untagged
+  m_TagString: Left Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
     type: 3}
   spawnPoint: {fileID: 4295569146407126878}
   wall: {fileID: 0}
+  lineRenderer: {fileID: 0}
   upKey: 119
   downKey: 115
   rightKey: 100
@@ -134,6 +135,7 @@ MonoBehaviour:
   movementSpeed: 1
   timeBetweenProjectile: 0.25
   activeOnLevel: 0
+  isBeam: 0
   impassableLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -181,7 +183,7 @@ GameObject:
   - component: {fileID: 5123948492422351964}
   m_Layer: 0
   m_Name: Hand Right
-  m_TagString: Untagged
+  m_TagString: Right Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +235,7 @@ MonoBehaviour:
     type: 3}
   spawnPoint: {fileID: 3181838879623456650}
   wall: {fileID: 0}
+  lineRenderer: {fileID: 0}
   upKey: 273
   downKey: 274
   rightKey: 275
@@ -240,6 +243,7 @@ MonoBehaviour:
   movementSpeed: 1
   timeBetweenProjectile: 0.25
   activeOnLevel: 0
+  isBeam: 0
   impassableLayer:
     serializedVersion: 2
     m_Bits: 0

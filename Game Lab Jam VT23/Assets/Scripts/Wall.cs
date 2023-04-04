@@ -11,6 +11,7 @@ public class Wall : MonoBehaviour
     [SerializeField] GameObject[] impassableWalls;
     Vector2 spawnBounds;
     [SerializeField] bool randomCubes;
+    [SerializeField] GameObject spawnZone;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,12 @@ public class Wall : MonoBehaviour
                     }
                 }
 
-                foreach(GameObject impassable in impassableWalls)
+                if (spawnedObject.GetComponent<Collider>().bounds.Intersects(spawnZone.GetComponent<Collider>().bounds))
+                {
+                    destroyObject = true;
+                }
+
+                foreach (GameObject impassable in impassableWalls)
                 {
                     if (destroyObject)
                         break;
@@ -66,9 +72,7 @@ public class Wall : MonoBehaviour
         }
         else
         {
-            
             unfixedObjects = FindObjectsOfType<FaultyObject>().ToList();
-            
         }
 
         FindObjectOfType<GameManager>().UpdateObjectCount();
@@ -77,6 +81,32 @@ public class Wall : MonoBehaviour
     public void removeFixedObject(GameObject fixedObject)
     {
         unfixedObjects.Remove(fixedObject.GetComponent<FaultyObject>());
+
+        bool fireObjectsLeft = false;
+        bool powerObjectsLeft = false;
+
+        foreach (FaultyObject faultyObject in unfixedObjects)
+        {
+            if(faultyObject.transform.tag == "Power")
+            {
+                powerObjectsLeft = true;
+            }
+
+            if(faultyObject.transform.tag == "Fire")
+            {
+                fireObjectsLeft = true;
+            }
+        }
+
+        if(!fireObjectsLeft)
+        {
+            GameObject.FindGameObjectWithTag("Right Hand").GetComponent<Hand>().Disable();
+        }
+
+        if(!powerObjectsLeft)
+        {
+            GameObject.FindGameObjectWithTag("Left Hand").GetComponent<Hand>().Disable();
+        }
     }
 
     public int UnfixedObjectCount() => unfixedObjects.Count;

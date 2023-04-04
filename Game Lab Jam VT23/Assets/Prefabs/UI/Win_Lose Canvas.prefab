@@ -386,6 +386,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: -47.4044
       objectReference: {fileID: 0}
+    - target: {fileID: 4294713685746141177, guid: 0666c7747c4b4934cb06d4ca668c2d16,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294713685746141177, guid: 0666c7747c4b4934cb06d4ca668c2d16,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294713685746141177, guid: 0666c7747c4b4934cb06d4ca668c2d16,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 4294713685746141179, guid: 0666c7747c4b4934cb06d4ca668c2d16,
         type: 3}
       propertyPath: m_Pivot.x
