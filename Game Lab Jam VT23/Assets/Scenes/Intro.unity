@@ -589,7 +589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use the arrow keys to navigate the cutscene or ESC to skip
+  m_text: 'Use the left joystick to navigate the cutscene!
 
 '
   m_isRightToLeft: 0

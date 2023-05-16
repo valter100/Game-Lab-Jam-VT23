@@ -18,10 +18,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip gameOverSound;
     [SerializeField] AudioClip winSound;
 
+    FollowCursor followCursor;
+
     public static bool GameStarted;
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<MouseMover>().SetActive(false);
+
         if (timerText != null)
         {
             timerText.text = "TIME: " + (int)levelTimer;
@@ -65,6 +69,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverCanvas.SetActive(true);
+        FindObjectOfType<MouseMover>().SetActive(true);
+        followCursor.gameObject.SetActive(true);
         GameStarted = false;
 
         FindObjectOfType<AudioSource>().PlayOneShot(gameOverSound);
@@ -77,6 +83,8 @@ public class GameManager : MonoBehaviour
         if (wall.UnfixedObjectCount() <= 0)
         {
             winCanvas.SetActive(true);
+            FindObjectOfType<MouseMover>().SetActive(true);
+            followCursor.gameObject.SetActive(true);
             FindObjectOfType<AudioSource>().PlayOneShot(winSound);
             GameStarted = false;
         }
@@ -98,5 +106,11 @@ public class GameManager : MonoBehaviour
 
         GameStarted = true;
         yield return 0;
+    }
+
+    public void SetFollowCursor(FollowCursor newCursor)
+    {
+        followCursor = newCursor;
+        newCursor.gameObject.SetActive(false);
     }
 }
