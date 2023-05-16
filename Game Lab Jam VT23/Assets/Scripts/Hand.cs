@@ -22,8 +22,10 @@ public class Hand : MonoBehaviour
     [SerializeField] float timeBetweenProjectile;
     [SerializeField] bool activeOnLevel;
     [SerializeField] bool isBeam;
+    //[SerializeField] float TimeBetweenBeamTrigger;
     [SerializeField] LayerMask impassableLayer;
     float timeSinceLastProjectile;
+    //float timeSinceLastBeamTrigger;
 
     Vector3 currentDirection;
     Vector3 oldPosition;
@@ -42,21 +44,25 @@ public class Hand : MonoBehaviour
         oldPosition = transform.position;
 
         Move();
+        timeSinceLastProjectile += Time.deltaTime;
 
-        if(isBeam)
+        if (isBeam)
         {
-            Vector3[] positions = {focusTransform.transform.position, transform.position};
+            Vector3[] positions = { transform.position, focusTransform.transform.position };
 
-            for(int i = 0; i < positions.Length; i++)
+            for (int i = 0; i < positions.Length; i++)
             {
                 lineRenderer.SetPosition(i, positions[i]);
             }
-            //lineRenderer.SetPositions(positions);
+
+            if (timeSinceLastProjectile >= timeBetweenProjectile)
+            {
+                timeSinceLastProjectile = 0;
+                Instantiate(projectile, focusTransform.transform.position, transform.rotation * Quaternion.Euler(0, 0, 180));
+            }
         }
         else
         {
-            timeSinceLastProjectile += Time.deltaTime;
-
             if (timeSinceLastProjectile >= timeBetweenProjectile)
             {
                 timeSinceLastProjectile = 0;
@@ -109,6 +115,11 @@ public class Hand : MonoBehaviour
         }
 
         focusTransform.position = new Vector3(Mathf.Clamp(focusTransform.position.x, -wall.GetComponent<Collider>().bounds.size.x / 2, wall.GetComponent<Collider>().bounds.size.x / 2), Mathf.Clamp(focusTransform.position.y, 0, wall.GetComponent<Collider>().bounds.size.y), wall.transform.position.z);
+
+        focusTransform.position = new Vector3(
+            focusTransform.transform.position.x,
+            focusTransform.transform.position.y,
+            wall.transform.position.z - wall.GetComponent<Collider>().bounds.size.z/2);
 
         Vector3 lookDirection = (focusTransform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(90, 0, 180);
