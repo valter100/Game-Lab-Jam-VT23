@@ -244,6 +244,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1635299145776544870, guid: 226a78896f0d63241a59105af2c1a515,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1710650371662696848, guid: 226a78896f0d63241a59105af2c1a515,
         type: 3}
       propertyPath: timerText

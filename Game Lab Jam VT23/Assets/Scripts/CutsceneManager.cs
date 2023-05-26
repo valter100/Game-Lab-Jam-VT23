@@ -11,6 +11,8 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] TMP_Text cutsceneText;
     [SerializeField] TMP_Text tipText;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
+    [SerializeField] List<KeyCode> forwardKeys = new List<KeyCode>();
+    [SerializeField] List<KeyCode> backwardKeys = new List<KeyCode>();
     [SerializeField] List<string> subtitles = new List<string>();
     int index;
 
@@ -24,23 +26,33 @@ public class CutsceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        foreach(KeyCode key in backwardKeys)
         {
-            index--;
-            ChangeSlide();
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            index++;
-
-            if(index == sprites.Count)
+            if (Input.GetKeyDown(key))
             {
-                GoToMenu();
-                return;
+                index--;
+                ChangeSlide();
             }
 
-            ChangeSlide();
+            break;
+        }
+
+        foreach(KeyCode key in forwardKeys)
+        {
+            if (Input.GetKeyDown(key))
+            {
+                index++;
+
+                if(index == sprites.Count)
+                {
+                    GoToMenu();
+                    return;
+                }
+
+                ChangeSlide();
+
+                break;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
